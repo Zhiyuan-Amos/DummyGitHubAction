@@ -1,0 +1,15 @@
+name: 'Dummy Name'
+description: 'Dummy Description'
+inputs:
+  inline-variable:
+    description: 'Inline Variable'
+    required: true
+  configuration-variable:
+    description: 'Configuration Variable'
+    required: true
+runs:
+  env: ConfigurationVariable=${{ inputs.configuration-variable }}
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.inline-variable }}
